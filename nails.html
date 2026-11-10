@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7d1026">
+  <meta name="description" content="Agende seu horário de manicure para as festas de fim de ano. Unhas impecáveis para celebrar!">
+  <title>Ateliê das Unhas | Especial de Natal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ruby: #7d1026;
+      --ruby-dark: #4c0918;
+      --ruby-soft: #a92c43;
+      --gold: #c9a45c;
+      --gold-light: #ead8ad;
+      --cream: #fffaf5;
+      --ink: #2d2022;
+      --muted: #76696a;
+      --white: #fff;
+      --shadow: 0 18px 45px rgba(72, 20, 31, .10);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+
+    .topline {
+      background: var(--ruby-dark);
+      color: #fff4e5;
+      text-align: center;
+      padding: 9px 16px;
+      font-size: .78rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,250,245,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(125,16,38,.08);
+    }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      color: var(--ruby);
+      font: 600 1.45rem "Playfair Display", serif;
+      letter-spacing: .02em;
+    }
+    .brand span { color: var(--gold); }
+    .nav-links { display: flex; gap: 28px; align-items: center; font-size: .9rem; }
+    .nav-links a:hover { color: var(--ruby-soft); }
+    .nav-cta, .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--ruby);
+      color: white;
+      padding: 13px 22px;
+      font: 700 .9rem "DM Sans", sans-serif;
+      cursor: pointer;
+      transition: transform .2s, background .2s, box-shadow .2s;
+    }
+    .nav-cta:hover, .button:hover {
+      background: var(--ruby-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(125,16,38,.2);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 610px;
+      display: flex;
+      align-items: center;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(45,5,17,.88) 0%, rgba(65,8,24,.72) 48%, rgba(65,8,24,.18) 100%),
+        url("https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=2000&q=88") center 48%/cover;
+    }
+    .hero::after {
+      content: "✦";
+      position: absolute;
+      right: 8%;
+      top: 12%;
+      color: rgba(234,216,173,.65);
+      font-size: 4rem;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 650px; padding: 90px 0; }
+    .eyebrow {
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-size: .75rem;
+      font-weight: 700;
+    }
+    h1, h2, h3 { font-family: "Playfair Display", serif; line-height: 1.12; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.3rem); margin: 18px 0; font-weight: 600; }
+    h1 em { color: var(--gold-light); font-style: normal; }
+    .hero p { max-width: 520px; color: rgba(255,255,255,.84); font-size: 1.08rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+    .button.gold { background: var(--gold); color: #321c1b; }
+    .button.gold:hover { background: #dfc17f; }
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 28px;
+      padding: 10px 15px;
+      border: 1px solid rgba(234,216,173,.42);
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      color: #fff7e8;
+      font-size: .86rem;
+    }
+    .pulse {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: #7fe0a4;
+      box-shadow: 0 0 0 0 rgba(127,224,164,.7);
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      70% { box-shadow: 0 0 0 9px rgba(127,224,164,0); }
+      100% { box-shadow: 0 0 0 0 rgba(127,224,164,0); }
+    }
+
+    section { padding: 88px 0; }
+    .section-heading { text-align: center; max-width: 680px; margin: 0 auto 42px; }
+    .section-heading .eyebrow { color: var(--ruby-soft); }
+    h2 { font-size: clamp(2.1rem, 4vw, 3.2rem); color: var(--ruby-dark); margin: 12px 0; }
+    .section-heading p { color: var(--muted); margin: 0; }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      background: white;
+      border: 1px solid rgba(201,164,92,.22);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 24px 50px rgba(72,20,31,.15); }
+    .service-photo { height: 190px; background-size: cover; background-position: center; }
+    .service-body { padding: 23px; }
+    .service-body h3 { margin: 0 0 7px; font-size: 1.35rem; color: var(--ruby-dark); }
+    .service-body p { color: var(--muted); font-size: .9rem; min-height: 44px; margin: 0 0 18px; }
+    .service-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .price { color: var(--ruby); font-size: 1.35rem; font-weight: 700; }
+    .book-link { color: var(--ruby); font-size: .85rem; font-weight: 700; border-bottom: 1px solid var(--gold); padding-bottom: 3px; }
+    .book-link:hover { color: var(--ruby-soft); }
+    .featured {
+      position: absolute; top: 14px; left: 14px;
+      background: var(--gold-light); color: #4b2d1d;
+      border-radius: 999px; padding: 6px 11px;
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    }
+
+    .urgency {
+      background: linear-gradient(115deg, var(--ruby-dark), var(--ruby));
+      color: white;
+      padding: 62px 0;
+    }
+    .urgency-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .urgency h2 { color: white; margin: 0 0 10px; }
+    .urgency p { margin: 0; color: rgba(255,255,255,.78); max-width: 650px; }
+    .urgency .eyebrow { display: block; margin-bottom: 12px; }
+
+    .gallery { background: #f5ece6; }
+    .gallery-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; }
+    .gallery-grid img {
+      width: 100%; height: 270px; object-fit: cover;
+      border-radius: 18px; box-shadow: 0 12px 30px rgba(45,20,20,.10);
+    }
+    .gallery-grid img:first-child { height: 100%; min-height: 270px; grid-row: span 2; }
+
+    .how-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .step { padding: 28px; background: white; border-radius: 18px; border: 1px solid #f0e4dc; }
+    .step-number {
+      width: 42px; height: 42px; display: grid; place-items: center;
+      border-radius: 50%; background: #f4e8d2; color: var(--ruby); font-weight: 700;
+      margin-bottom: 17px;
+    }
+    .step h3 { color: var(--ruby-dark); margin: 0 0 8px; font-size: 1.25rem; }
+    .step p { color: var(--muted); margin: 0; font-size: .92rem; }
+
+    footer { background: #2d1119; color: white; padding: 48px 0 28px; }
+    .footer-inner { display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; }
+    footer .brand { color: white; }
+    footer p { max-width: 390px; color: rgba(255,255,255,.65); font-size: .9rem; }
+    .footer-small { border-top: 1px solid rgba(255,255,255,.13); margin-top: 30px; padding-top: 20px; color: rgba(255,255,255,.48); font-size: .78rem; }
+    .whatsapp-float {
+      position: fixed; right: 22px; bottom: 22px; z-index: 30;
+      width: 58px; height: 58px; border-radius: 50%;
+      display: grid; place-items: center; background: #20bd67; color: white;
+      box-shadow: 0 8px 24px rgba(0,0,0,.2); font-size: 1.55rem;
+      transition: transform .2s;
+    }
+    .whatsapp-float:hover { transform: scale(1.08); }
+
+    @media (max-width: 850px) {
+      .services { grid-template-columns: repeat(2,1fr); }
+      .nav-links { gap: 15px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid img:first-child { grid-row: auto; height: 270px; }
+      .urgency-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 600px) {
+      .container { width: min(100% - 30px, 520px); }
+      .nav { min-height: 68px; }
+      .nav-links { display: none; }
+      .nav-cta { padding: 11px 16px; font-size: .8rem; }
+      .hero { min-height: 590px; background-position: 58% center; }
+      .hero-content { padding: 75px 0; }
+      section { padding: 68px 0; }
+      .services, .how-grid, .gallery-grid { grid-template-columns: 1fr; }
+      .service-photo { height: 210px; }
+      .gallery-grid img, .gallery-grid img:first-child { height: 250px; min-height: 0; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topline">Especial de Natal • Beleza para celebrar cada momento</div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio">Ateliê <span>das Unhas</span></a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#servicos">Serviços</a>
+        <a href="#inspiracoes">Inspirações</a>
+        <a href="#agendamento">Agendamento</a>
+      </nav>
+      <a class="nav-cta" href="#servicos">Ver serviços <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Um toque de elegância para suas festas</span>
+          <h1>Suas unhas prontas para <em>brilhar.</em></h1>
+          <p>Reserve seu momento de cuidado e beleza. Escolha seu serviço favorito e venha celebrar o fim de ano com unhas impecáveis.</p>
+          <div class="hero-actions">
+            <a class="button gold" href="#servicos">Conhecer serviços</a>
+            <a class="button" href="#agendamento">Agendar pelo WhatsApp</a>
+          </div>
+          <div class="availability"><span class="pulse"></span> Agenda de fim de ano aberta</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Nosso menu de beleza</span>
+          <h2>Escolha seu cuidado</h2>
+          <p>Um atendimento especial para deixar suas mãos e pés ainda mais bonitos nas comemorações.</p>
+        </div>
+
+        <div class="services">
+          <article class="service-card">
+            <div class="service-photo" style="background-image:url('https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=85')"></div>
+            <div class="service-body">
+              <h3>Postiça Realista</h3>
+              <p>Um acabamento delicado e elegante para transformar suas unhas.</p>
+              <div class="service-bottom"><span class="price">R$ 30,00</span><a class="book-link" href="#" data-service="Postiça Realista" data-price="R$ 30,00">Agendar ↗</a></div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <span class="featured">Queridinho</span>
+            <div class="service-photo" style="background-image:url('https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=85')"></div>
+            <div class="service-body">
+              <h3>Banho de Gel</h3>
+              <p>Mais estrutura e brilho para valorizar suas unhas naturais.</p>
+              <div class="service-bottom"><span class="price">R$ 50,00</span><a class="book-link" href="#" data-service="Banho de Gel" data-price="R$ 50,00">Agendar ↗</a></div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-photo" style="background-image:url('https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=900&q=85')"></div>
+            <div class="service-body">
+              <h3>Gel na Tips</h3>
+              <p>Alongamento com visual bonito e acabamento uniforme.</p>
+              <div class="service-bottom"><span class="price">R$ 60,00</span><a class="book-link" href="#" data-service="Gel na Tips" data-price="R$ 60,00">Agendar ↗</a></div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-photo" style="background-image:url('https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=85')"></div>
+            <div class="service-body">
+              <h3>Esmaltação em Gel</h3>
+              <p>Cor intensa e brilho para completar seu visual.</p>
+              <div class="service-bottom"><span class="price">R$ 25,00</span><a class="book-link" href="#" data-service="Esmaltação em Gel" data-price="R$ 25,00">Agendar ↗</a></div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-photo" style="background-image:url('https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=900&q=85')"></div>
+            <div class="service-body">
+              <h3>Banho de Gel nos Pés</h3>
+              <p>Um cuidado extra para seus pés também entrarem no clima.</p>
+              <div class="service-bottom"><span class="price">R$ 40,00</span><a class="book-link" href="#" data-service="Banho de Gel nos Pés" data-price="R$ 40,00">Agendar ↗</a></div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-photo" style="background-image:url('https://images.unsplash.com/photo-1604902396830-aca29e19b067?auto=format&fit=crop&w=900&q=85')"></div>
+            <div class="service-body">
+              <h3>Unha em Gel</h3>
+              <p>Alongamento com presença e beleza para ocasiões especiais.</p>
+              <div class="service-bottom"><span class="price">R$ 65,00</span><a class="book-link" href="#" data-service="Unha em Gel" data-price="R$ 65,00">Agendar ↗</a></div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-photo" style="background-image:url('https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=85')"></div>
+            <div class="service-body">
+              <h3>Adicionais / Detalhes</h3>
+              <p>Pequenos detalhes para personalizar seu resultado.</p>
+              <div class="service-bottom"><span class="price">R$ 1,00</span><a class="book-link" href="#" data-service="Adicionais / Detalhes" data-price="R$ 1,00">Agendar ↗</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="urgency" id="agendamento">
+      <div class="container urgency-inner">
+        <div>
+          <span class="eyebrow">Não deixe para a última hora</span>
+          <h2>Dezembro tem horários limitados.</h2>
+          <p>Garanta seu horário com antecedência e aproveite as festas com as unhas do jeitinho que você gosta. Os agendamentos são confirmados diretamente pelo WhatsApp.</p>
+        </div>
+        <a class="button gold" id="general-whatsapp" href="#">Quero reservar meu horário ↗</a>
+      </div>
+    </section>
+
+    <section class="gallery" id="inspiracoes">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Inspire-se</span>
+          <h2>Detalhes que fazem a diferença</h2>
+          <p>Escolha sua inspiração e converse sobre o estilo que deseja no seu atendimento.</p>
+        </div>
+        <div class="gallery-grid">
+          <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1000&q=88" alt="Inspiração de manicure com unhas bem cuidadas" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=88" alt="Detalhe de esmaltação de unhas" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=900&q=88" alt="Inspiração de unhas decoradas" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=900&q=88" alt="Cuidados de beleza para mãos e pés" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1604902396830-aca29e19b067?auto=format&fit=crop&w=900&q=88" alt="Inspiração de unhas para ocasião especial" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Simples e rápido</span>
+          <h2>Como agendar</h2>
+          <p>Seu próximo momento de autocuidado está a poucos cliques.</p>
+        </div>
+        <div class="how-grid">
+          <article class="step"><div class="step-number">01</div><h3>Escolha o serviço</h3><p>Confira as opções e selecione o procedimento que deseja.</p></article>
+          <article class="step"><div class="step-number">02</div><h3>Chame no WhatsApp</h3><p>O botão abre uma conversa com a mensagem do serviço já preenchida.</p></article>
+          <article class="step"><div class="step-number">03</div><h3>Combine seu horário</h3><p>Confirme a disponibilidade diretamente com a profissional.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <a class="brand" href="#inicio">Ateliê <span>das Unhas</span></a>
+          <p>Beleza, cuidado e carinho em cada detalhe. Agende seu horário e celebre o fim de ano com você em primeiro lugar.</p>
+        </div>
+        <div>
+          <strong>Agendamentos</strong>
+          <p>Entre em contato pelo WhatsApp para consultar horários disponíveis.</p>
+          <a class="button gold" href="#" id="footer-whatsapp">Falar pelo WhatsApp ↗</a>
+        </div>
+      </div>
+      <div class="footer-small">© <span id="year"></span> Ateliê das Unhas. Todos os direitos reservados.</div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" id="float-whatsapp" href="#" aria-label="Agendar pelo WhatsApp" title="Agendar pelo WhatsApp">✆</a>
+
+  <script>
+    // COLOQUE AQUI O NÚMERO COM DDI + DDD, SOMENTE NÚMEROS.
+    // Exemplo: const TELEFONE = "5511999999999";
+    const TELEFONE = "Número da loja aqui!";
+
+    function abrirWhatsApp(mensagem) {
+      if (!/^\d{10,15}$/.test(TELEFONE)) {
+        alert("Antes de publicar, substitua TELEFONE no final do arquivo pelo número de WhatsApp com DDI e DDD, usando somente números.");
+        return;
+      }
+      const url = `https://wa.me/${TELEFONE}?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    document.querySelectorAll("[data-service]").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const servico = link.dataset.service;
+        const preco = link.dataset.price;
+        abrirWhatsApp(`Olá! Gostaria de agendar: ${servico} (${preco}). Quais horários estão disponíveis?`);
+      });
+    });
+
+    const mensagemGeral = "Olá! Gostaria de consultar os horários disponíveis para agendar um atendimento de manicure. 🌟💅🏻";
+    ["general-whatsapp", "footer-whatsapp", "float-whatsapp"].forEach((id) => {
+      document.getElementById(id).addEventListener("click", (event) => {
+        event.preventDefault();
+        abrirWhatsApp(mensagemGeral);
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
